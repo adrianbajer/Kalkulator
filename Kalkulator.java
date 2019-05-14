@@ -60,8 +60,3 @@ public class Kalkulator {
     }
 
 }
-
-class inputError extends Exception
-{
-    
-} 
