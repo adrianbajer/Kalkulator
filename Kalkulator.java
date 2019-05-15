@@ -10,7 +10,7 @@ package kalkulator;
  * @author Adrian
  */
 import java.util.Scanner;
-import java.lang.Exception;
+
 
 
 
@@ -25,10 +25,20 @@ public class Kalkulator {
         
         Scanner sc = new Scanner(System.in);
             System.out.println("Podaj pierwszą liczbę: ");
-                double a = sc.nextDouble();
+                while (!sc.hasNextDouble())
+                {
+                    System.out.println("Błąd! Wprowadź poprawną liczbę.");
+                    sc.next();
+                }
+                    double a = sc.nextDouble();
             System.out.println("Podaj drugą liczbę: ");
-                double b = sc.nextDouble();
-                sc.nextLine();
+                while (!sc.hasNextDouble())
+                {
+                    System.out.println("Błąd! Wprowadź poprawną liczbę.");
+                    sc.next();
+                }
+                    double b = sc.nextDouble();
+                    sc.nextLine();
             System.out.println("Podaj znak działania, które chcesz wykonać (+ - * / ^): ");
                 String operationSymbol = sc.nextLine();
 
@@ -51,6 +61,7 @@ public class Kalkulator {
             default:
                 System.out.println("Podałeś zły znak działania!");
                 System.out.println("Spróbuj jeszcze raz");
+                System.exit(0);
         }
         
         System.out.println(wynik);
